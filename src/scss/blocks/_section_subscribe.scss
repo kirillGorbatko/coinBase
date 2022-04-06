@@ -1,0 +1,52 @@
+.section_subscribe {
+}
+
+.section_subscribe__content {
+}
+
+.section_subscribe__head {
+	max-width: 38rem;
+	margin: 0 auto;
+
+	@include bp($point_2, min) {
+		&:not(:last-child) {
+			margin-bottom: 5rem;
+		}
+	}
+
+	@include bp($point_3) {
+		&:not(:last-child) {
+			margin-bottom: 2.8rem;
+		}
+	}
+}
+
+.section_subscribe__form {
+	gap: 1rem;
+
+	@include bp($point_5, min) {
+		@include flex_block(row, wrap, center, center, center);
+	}
+	@include bp($point_5 - 1) {
+		display: grid;
+		max-width: 28.8rem;
+		margin: 0 auto;
+	}
+}
+
+.section_subscribe__input {
+	@extend %border_gradient;
+
+	&::before,
+	&::after {
+		border-radius: $gl_radius;
+	}
+
+	@include bp($point_5, min) {
+		min-width: 38.8rem;
+	}
+}
+
+.section_subscribe__button {
+	height: 5.4rem;
+}

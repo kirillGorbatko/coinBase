@@ -4,20 +4,12 @@
 
 	width: 100%;
 
-	font-size: 1rem;
+	@include bp($point_2, min) {
+		padding: 12rem var(--gl-indent);
+	}
 
-	//remove this demo style
-	&.demo_mod {
-		@extend %global_flex_block_row_nowrap_center_center;
-
-		height: calc(100vh - (var(--height-footer) + var(--height-header)));
-
-		font-size: 4rem;
-		color: $white;
-		text-align: center;
-
-		background-color: $black;
-
+	@include bp($point_3) {
+		padding: 6rem var(--gl-indent);
 	}
 }
 

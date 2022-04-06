@@ -1,0 +1,129 @@
+.section_trade {
+	background: $gradient;
+}
+
+.section_trade__wrap {
+}
+
+.section_trade__block {
+	display: grid;
+	justify-content: center;
+
+	max-width: 98rem;
+	margin: 0 auto;
+
+	background-color: $white;
+	box-shadow: 0 5rem 10rem rgba($black, 0.1);
+	border-radius: 3rem;
+
+	@include bp($point_4, min) {
+		padding: 7.4rem 2rem;
+	}
+
+	@include bp($point_4 - 1) {
+		padding: 4rem 2rem;
+	}
+}
+
+.section_trade__head {
+	@include bp($point_2, min) {
+		&:not(:last-child) {
+			margin-bottom: 5rem;
+		}
+	}
+
+	@include bp($point_3) {
+		&:not(:last-child) {
+			margin-bottom: 2.8rem;
+		}
+	}
+}
+
+.section_trade__list {
+	@include flex_block(row, wrap, center);
+
+	@include bp($point_4, min) {
+		gap: 6.2rem;
+	}
+
+	@include bp($point_4 - 1) {
+		gap: 4rem;
+	}
+}
+
+.section_trade__item {
+	@extend %border_gradient;
+
+	text-align: center;
+
+	&::after,
+	&::before {
+		border-radius: 1.5rem;
+	}
+	&::before {
+		@extend %transition_transform;
+	}
+
+	&:hover {
+		&::before {
+			transform: scale(0.8);
+		}
+	}
+
+	@include bp($point_4, min) {
+		width: 26.2rem;
+		height: 22.6rem;
+	}
+
+	@include bp($point_4 - 1) {
+		width: 20.2rem;
+		height: 18.6rem;
+	}
+}
+
+.section_trade__link {
+	position: relative;
+	z-index: 2;
+
+	display: block;
+
+	@include bp($point_4, min) {
+		width: 26.2rem;
+		height: 22.6rem;
+
+		padding: 4rem;
+	}
+
+	@include bp($point_4 - 1) {
+		width: 20.2rem;
+		height: 18.6rem;
+
+		padding: 4rem 2rem;
+	}
+}
+
+.section_trade__icon {
+	@include bp($point_4, min) {
+		&:not(:last-child) {
+			margin-bottom: 5rem;
+		}
+	}
+
+	@include bp($point_4 - 1) {
+		&:not(:last-child) {
+			margin-bottom: 2.8rem;
+		}
+	}
+}
+
+.section_trade__icon_img {
+	max-width: 7rem;
+	height: 5.8rem;
+}
+
+.section_trade__name {
+	font-size: 1.6rem;
+	font-weight: 700;
+	color: $black_3;
+	text-transform: capitalize;
+}

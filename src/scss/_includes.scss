@@ -15,8 +15,22 @@
 @import "forms";
 @import "blocks/sections";
 
+// sections
+@import "blocks/section_hero";
+@import "blocks/section_info";
+@import "blocks/section_exchanges";
+@import "blocks/section_trade";
+@import "blocks/section_blog";
+@import "blocks/section_reviews";
+@import "blocks/section_app";
+@import "blocks/section_subscribe";
+
+// universal
+@import "blocks/universal/head_block";
+
 // base_ui
 @import "base_ui/all_icons";
+@import "base_ui/all_animations";
 @import "base_ui/buttons";
 
 // plugins

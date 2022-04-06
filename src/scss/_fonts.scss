@@ -1,1 +1,4 @@
-@include font_face('RobotoCondensed-Regular', 'RobotoCondensed', $font_path, 400);
+@include font_face("OpenSans-Bold", "OpenSans", $font_path, 700);
+@include font_face("OpenSans-Regular", "OpenSans", $font_path, 400);
+@include font_face("Poppins-Bold", "Poppins", $font_path, 700);
+@include font_face("Poppins-Regular", "Poppins", $font_path, 400);

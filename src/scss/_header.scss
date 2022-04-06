@@ -1,17 +1,422 @@
 //------------------------------------------------------------layout
 .header {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	width: 100%;
+	overflow: hidden;
+}
+
+.header__wrapper {
 	position: fixed;
 	top: 0;
 	left: 0;
 
-	height: var(--height-header);
 	width: 100%;
 
-	font-size: 1rem;
-
-	will-change: transform;
+	background-color: $white;
 
 	@include z-index(header);
+
+	@include bp($point_2, min) {
+		padding: 5.2rem var(--gl-indent);
+		min-height: var(--height-header);
+	}
+
+	@include bp($point_3) {
+		padding: 2rem var(--gl-indent);
+		min-height: var(--height-header-mobile);
+	}
+}
+
+.header_in {
+	max-width: $page_width;
+	margin: 0 auto;
+
+	gap: 2rem;
+
+	@include flex_block(row, wrap, flex-start, center);
+}
+
+.header__logo {
+	flex: 1 1 auto;
+}
+
+.header__logo_link {
+	position: relative;
+	z-index: 5;
+
+	display: inline-block;
+	max-width: 14.2rem;
+	height: 2.9rem;
+
+	@extend %transition_opacity;
+	&:hover {
+		opacity: 0.7;
+	}
+
+	@include bp($point_2, min) {
+		margin-bottom: 0.8rem;
+	}
+}
+
+.header__logo_img {
+	display: block;
+	max-width: 100%;
+	max-height: 100%;
+
+	@extend %transition_opacity;
+
+	.menuOpen & {
+		opacity: 0;
+	}
+}
+
+.header__logo_img--white {
+	position: absolute;
+	top: 0;
+	left: 0;
+
+	opacity: 0;
+	.menuOpen & {
+		opacity: 1;
+	}
+}
+
+.header__actions {
+	gap: 2.4rem;
+
+	@include flex_block(row, wrap, flex-start, center);
+}
+
+.header__body {
+	@include flex_block(row, wrap, flex-start, center, flex-start);
+
+	@include bp($point_2, min) {
+		gap: 2rem 5.2rem;
+	}
+
+	@include bp($point_3) {
+		position: fixed;
+		top: 0;
+		left: 0;
+		transform: translate(120%, 0);
+		z-index: 4;
+
+		overflow: auto;
+		width: 100%;
+		height: 100%;
+
+		row-gap: 5.2rem;
+		padding: 10rem 3rem 3rem 3rem;
+		background-color: rgba($black, 0.98);
+
+		transition: transform 0.3s ease;
+		will-change: transform;
+
+		.menuOpen & {
+			transform: translate(0, 0);
+		}
+
+		@include flex_block(column, nowrap, flex-start, center, flex-start);
+	}
+}
+
+.header__button {
+}
+
+.header__button--clone {
+	@include bp($point_2, min) {
+		display: none;
+	}
+
+	@media (max-width: $point_3) and (min-width: $point_6) {
+		display: inline-flex;
+	}
+
+	@include bp($point_6 - 1) {
+		display: none;
+	}
+}
+
+.header_menu {
+	@include bp($point_1, min) {
+		margin-right: 6.2rem;
+	}
+
+	@media (max-width: $point_1 - 1) and (min-width: $point_2) {
+		margin-right: 2rem;
+	}
+}
+
+.header_menu__list {
+	@include flex_block(row, wrap, flex-start, center, flex-start);
+
+	@include bp($point_1, min) {
+		gap: 2rem 6.6rem;
+	}
+
+	@include bp($point_1 - 1) {
+		gap: 3.8rem 4rem;
+	}
+
+	@include bp($point_3 - 1) {
+		flex-direction: column;
+	}
+}
+
+.header_menu__item {
+}
+
+.header_menu__link {
+	position: relative;
+
+	display: block;
+
+	font-weight: 700;
+	line-height: 1.5;
+
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: -0.5rem;
+		left: 50%;
+		transform: translate(-50%, 1rem);
+
+		width: 2.2rem;
+		height: 0.3rem;
+		border-radius: 10rem;
+
+		background: $pink;
+
+		transition: opacity 0.3s ease, transform ease 0.3s;
+		opacity: 0;
+	}
+
+	&.activeState,
+	&:hover {
+		&::before {
+			opacity: 1;
+			transform: translate(-50%, 0);
+		}
+	}
+
+	@include bp($point_2, min) {
+		color: $black_3;
+		font-size: 1.4rem;
+	}
+
+	@include bp($point_3) {
+		color: $white;
+		font-size: 2.1rem;
+	}
+}
+
+.header_sublist {
+	position: relative;
+}
+
+.header_sublist__title {
+	font-weight: 700;
+	line-height: 1.5;
+	cursor: pointer;
+
+	&::after {
+		content: "";
+		display: block;
+		width: 0;
+		height: 0;
+
+		margin-left: 0.4rem;
+	}
+
+	@include flex_block(row, nowrap, flex-start, center);
+
+	@include bp($point_2, min) {
+		color: $black_3;
+		font-size: 1.4rem;
+
+		&::after {
+			border-left: 0.5rem solid transparent;
+			border-right: 0.5rem solid transparent;
+			border-top: 0.8rem solid $black_3;
+			border-radius: 1rem;
+		}
+	}
+
+	@include bp($point_3) {
+		color: $white;
+		font-size: 2.1rem;
+
+		&::after {
+			border-left: 0.8rem solid transparent;
+			border-right: 0.8rem solid transparent;
+			border-top: 1.2rem solid $white;
+			border-radius: 0.2rem;
+		}
+	}
+}
+
+.header_sublist__body {
+	position: absolute;
+
+	@include bp($point_2, min) {
+		transform: translate(100%, 100%);
+		left: -0.6rem;
+		bottom: -2rem;
+
+		&::before {
+			content: "";
+			position: absolute;
+			top: -0.4rem;
+			left: 1.2rem;
+			transform: translate(0, -100%);
+
+			width: 0;
+			height: 0;
+			border-left: 0.7rem solid transparent;
+			border-right: 0.7rem solid transparent;
+			border-bottom: 1rem solid $grey_3;
+		}
+	}
+
+	@include bp($point_3) {
+		width: 100%;
+		left: 0;
+		bottom: -0.1rem;
+		transform: translate(0, 100%);
+	}
+}
+
+.header_sublist__list {
+	min-width: 14.2rem;
+	overflow: hidden;
+
+	border: 0.1rem solid $grey_3;
+	border-radius: 0.5rem;
+	background-color: $white;
+}
+
+.header_sublist__item {
+	position: relative;
+	z-index: 2;
+
+	&:not(:last-child) {
+		border-bottom: 0.1rem solid $grey_3;
+	}
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+
+		width: 100%;
+		height: 100%;
+
+		background: $gradient;
+
+		opacity: 0;
+		@extend %transition_opacity;
+	}
+
+	&:hover {
+		.header_sublist__link {
+			color: $white;
+		}
+		&::before {
+			opacity: 1;
+		}
+	}
+}
+
+.header_sublist__link {
+	position: relative;
+	z-index: 2;
+
+	display: block;
+	width: 100%;
+
+	color: $black_3;
+	line-height: 1.5;
+
+	padding: 0.6rem 1.2rem;
+
+	@extend %transition_color;
+
+	@include bp($point_2, min) {
+		font-size: 1.2rem;
+	}
+
+	@include bp($point_3) {
+		font-size: 1.8rem;
+	}
 }
 
 //------------------------------------------------------------layout###
+
+.iconMenu {
+	@include bp($point_2, min) {
+		display: none;
+	}
+	@include bp($point_3) {
+		position: relative;
+		z-index: 5;
+
+		display: block;
+		width: 2.8rem;
+		height: 1.8rem;
+
+		cursor: pointer;
+
+		.iconMenu_in,
+		&::before,
+		&::after {
+			content: "";
+			position: absolute;
+			left: 0;
+
+			width: 100%;
+			height: 0.2rem;
+
+			background-color: $black_3;
+			transition: all 0.3s ease;
+		}
+
+		&::before {
+			top: 0;
+		}
+
+		&::after {
+			bottom: 0;
+		}
+
+		.iconMenu_in {
+			top: calc(50% - 0.1rem);
+		}
+
+		.menuOpen & {
+			.iconMenu_in,
+			&::before,
+			&::after {
+				background-color: $white;
+			}
+
+			.iconMenu_in {
+				transform: scale(0);
+			}
+
+			&::before {
+				transform: rotate(-45deg);
+				top: calc(50% - 0.1rem);
+			}
+
+			&::after {
+				transform: rotate(45deg);
+				bottom: calc(50% - 0.1rem);
+			}
+		}
+	}
+}

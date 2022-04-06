@@ -8,34 +8,84 @@
 
 	cursor: pointer;
 
-	&:hover, &:focus {
+	&:hover,
+	&:focus {
 		text-decoration: none;
 	}
-
 }
 
 //color extends
-%blue_btn_1 {
+%gradient_btn_1 {
 	font-weight: 700;
 	color: $white;
-	background-color: $color_link_base;
-	transition: background-color .3s ease;
+	text-transform: uppercase;
+	background: $gradient;
+	transition: opacity 0.3s ease;
 
 	@include st_btn();
 
 	&:hover {
-		background-color: darken($color_link_base, 10%);
+		opacity: 0.8;
+	}
+}
+
+%white_btn_1 {
+	font-weight: 700;
+	text-transform: uppercase;
+	background: $white;
+	transition: opacity 0.3s ease;
+
+	span {
+		@extend %color_gradient;
 	}
 
+	@include st_btn();
+
+	&:hover {
+		opacity: 0.8;
+	}
 }
 
 //size extends
 %btn_size_1 {
-	height: 4rem;
-	padding: 0 1.2rem;
+	padding: 0 2rem;
 
-	line-height: 4rem;
-	font-size: 1.6rem;
+	line-height: 5.4rem;
+	font-size: 1.4rem;
+
+	border-radius: $gl_radius;
+
+	@include bp($point_2, min) {
+		height: 5.4rem;
+		min-width: 15.7rem;
+	}
+
+	@include bp($point_3) {
+		height: 4.4rem;
+		min-width: 10rem;
+	}
+}
+
+%btn_size_2 {
+	padding: 0 2rem;
+
+	height: 2.4rem;
+	min-width: 8.6rem;
+
+	line-height: 2.4rem;
+	font-size: 0.8rem;
+
+	border-radius: 0.5rem;
+}
+
+%btn_size_1 {
+	height: 4.4rem;
+	min-width: 12.7rem;
+
+	padding: 0 2rem;
+
+	line-height: 4.4rem;
+	font-size: 1.1rem;
 
 	border-radius: $gl_radius;
 }

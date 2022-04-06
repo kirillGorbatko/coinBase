@@ -1,2 +1,65 @@
+- 
+	footerLinks = ['Home','About Us','Blog','Sell','Contact Us',];
+	footerContacts = [
+		{
+			link: 'tel:234137632128',
+			text: '(+234) 137632128',
+		},
+		{
+			link: 'mailto:coinbase@yahoo.com',
+			text: 'Coinbase@yahoo.com',
+		},
+		{
+		link: '#',
+			text: 'Address goes here',
+		},
+	];
+
 mixin footer
 	footer.footer
+		.footer_in
+			.footer__body
+				.footer__wrap
+					a.footer__logo(href="/index.html")
+						img.footer__logo_img(src="images/logo_white.svg", alt="Footer logo")
+					.footer__text  Fusce ut elit aliquet, fermentum leo vel, tempus nunc. Fusce eu rhoncus augue. Fusce vel metus pharetra, fermentum
+					.footer_social
+						ul.footer_social__list
+							li.footer_social__item 
+								a.footer_social__link(href="#")
+									+icon('google', 'icon--size_mod')
+							li.footer_social__item 
+								a.footer_social__link(href="#")
+									+icon('facebook', 'icon--size_mod')
+							li.footer_social__item 
+								a.footer_social__link(href="#")
+									+icon('twitter', 'icon--size_mod')
+							li.footer_social__item 
+								a.footer_social__link(href="#")
+									+icon('instagram', 'icon--size_mod')
+				.footer__row.spollerItem(data-spollers='767,max').oneSpoller
+					.footer__column.footer_links
+						h4.footer__title.spollerTitle CoinBase Links
+						.footer__content
+							if (footerLinks)
+								ul.footer_links__list
+									each link in footerLinks
+										li.footer_links__item
+											a.footer_links__link(href="#")= link
+					.footer__column.footer_contacts
+						h4.footer__title.spollerTitle Contact Us
+						.footer__content
+							if (footerContacts)
+								ul.footer_contacts__list
+									each contact in footerContacts
+										li.footer_contacts__item 
+											a.footer_contacts__link(href=`${contact.link}`)= contact.text
+							a.footer_contacts__download(href="#") Download Our App
+					.footer__column.footer_gallery
+						h4.footer__title.spollerTitle CoinBase Instagram
+						.footer__content
+							ul.footer_gallery__list
+								+loop_while(8)
+									li.footer_gallery__item 
+										a.footer_gallery__link(href="#")
+			.footer__copy © 2019  Designed by Cr8tiv_yemmy

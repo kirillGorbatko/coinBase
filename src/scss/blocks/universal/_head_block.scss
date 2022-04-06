@@ -1,0 +1,140 @@
+.head_block--regullar {
+	.head_block__title {
+		@extend %color_gradient;
+
+		font-size: 2.8rem;
+		font-weight: 700;
+
+		&::after {
+			content: "";
+			display: block;
+			width: 5rem;
+			height: 0.7rem;
+
+			margin-top: 1.8rem;
+
+			background: $pink;
+			border-radius: 1rem;
+
+			@include bp($point_3) {
+				margin: 1.8rem auto 0;
+			}
+		}
+
+		&:not(:last-child) {
+			margin-bottom: 4rem;
+		}
+
+		@include bp($point_2, min) {
+			font-size: 2.8rem;
+		}
+
+		@include bp($point_3) {
+			font-size: 2.4rem;
+		}
+	}
+
+	.head_block__title.head_block--white {
+		color: $white;
+	}
+
+	.head_block__text {
+		color: $black_3;
+
+		@include bp($point_2, min) {
+			font-size: 1.6rem;
+			line-height: 2.5;
+		}
+
+		@include bp($point_3) {
+			font-size: 1.5rem;
+			line-height: 2;
+		}
+	}
+
+	.head_block__text.head_block--white {
+		color: $white;
+	}
+
+	.head_block__button {
+		@extend %btn_size_1;
+		@extend %gradient_btn_1;
+	}
+}
+
+.head_block--hero {
+	.head_block__title {
+		font-family: $font_2;
+		font-weight: 300;
+		color: $white;
+		line-height: 1.5;
+
+		&:not(:last-child) {
+			margin-bottom: 2.2rem;
+		}
+
+		.head_block__title_in {
+			font-family: $font_1;
+			font-weight: 700;
+		}
+
+		@include bp($point_2, min) {
+			font-size: 4rem;
+		}
+
+		@include bp($point_3) {
+			font-size: 2.8rem;
+		}
+	}
+
+	.head_block__text {
+		color: $white;
+		line-height: 1.5;
+
+		@include bp($point_2, min) {
+			font-size: 1.8rem;
+		}
+
+		@include bp($point_3) {
+			font-size: 1.7rem;
+		}
+	}
+
+	.head_block__button {
+		@extend %btn_size_1;
+		@extend %white_btn_1;
+	}
+}
+
+.head_block--center {
+	text-align: center;
+
+	.head_block__title::after {
+		margin: 1.8rem auto 0;
+	}
+}
+
+//========================================================================================================================================================
+.head_block {
+	@include bp($point_3) {
+		display: grid;
+		justify-items: center;
+		text-align: center;
+	}
+}
+
+.head_block__title {
+}
+
+.head_block__title--thin {
+	max-width: 25.4rem;
+}
+
+.head_block__text {
+	&:not(:last-child) {
+		margin-bottom: 3rem;
+	}
+}
+
+.head_block__button {
+}

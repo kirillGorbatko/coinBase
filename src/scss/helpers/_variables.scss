@@ -1,33 +1,44 @@
 //---------------------------------------------fonts
 $font_path: "../fonts/";
-$font_1: 'RobotoCondensed', sans-serif;
+$font_1: "Poppins";
+$font_2: "OpenSans";
 $font_size_base: 1.6rem;
 //---------------------------------------------fonts###
 
 //---------------------------------------------colors
 $white: #fff;
+$white_2: #d8d8d8;
 $black: #000;
+$black_2: #151515;
+$black_3: #333333;
+$grey: #a2a2a2;
+$grey_2: #c4c4c4;
+$grey_3: #e0e0e0;
+$grey_4: #989898;
+$grey_5: #bbbbbb;
+$pink: #fd749b;
+$gradient: linear-gradient(178.18deg, #fd749b -13.56%, #281ac8 158.3%);
 
-$color_text_base: $black;
-$color_link_base:#4aa3df;
+$color_text_base: $black_3;
+$color_link_base: $white;
 $body_bg: $white;
 //---------------------------------------------colors###
 
 //---------------------------------------------z-index
 $z-index: (
-	popup : 101,
-	header : 100,
-	footer : 100
+	popup: 101,
+	header: 100,
+	footer: 100,
 );
 //---------------------------------------------z-index###
 
 //---------------------------------------------layout
-$page_width: 96rem;
+$page_width: 137rem;
 
 //---------------------------------------------layout###
 
 //---------------------------------------------global values
-$gl_radius:.5rem;
+$gl_radius: 10rem;
 //---------------------------------------------global values###
 
 //---------------------------------------------media points
@@ -42,12 +53,10 @@ $point_8: 320px;
 //---------------------------------------------media points
 
 //---------------------------------------------forms
-$input_height: 4rem;
+$input_height: 5.4rem;
 $input_offset: 0 2rem;
-$input_font_size: $font_size_base;
-$input_border_color: #ccc;
-$input_border_color_active: $black;
-$input_placeholder_color: rgba($black, .4);
+$input_font_size: 1.4rem;
+$input_placeholder_color: $black_3;
 $input_text_color: $black;
 $input_radius: $gl_radius;
 //---------------------------------------------forms###

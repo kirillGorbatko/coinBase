@@ -1,0 +1,49 @@
+.section_hero {
+	background: $gradient;
+
+	@include bp($point_2, min) {
+		min-height: var(--full-screen);
+
+		padding: calc(var(--height-header) + 6rem) var(--gl-indent) 6rem;
+	}
+
+	@include bp($point_3) {
+		padding: calc(var(--height-header-mobile) + 8rem) var(--gl-indent) 6rem;
+	}
+}
+
+.section_hero__row {
+	display: grid;
+	align-items: center;
+
+	gap: 3.6rem;
+
+	@include bp($point_2, min) {
+		grid-template-columns: repeat(auto-fit, minmax(48.6rem, 1fr));
+	}
+
+	@include bp($point_3) {
+		max-width: 70rem;
+		margin: 0 auto;
+	}
+}
+
+.section_hero__column {
+}
+
+.section_hero__content {
+	@include bp($point_2, min) {
+		max-width: 52.9rem;
+	}
+}
+
+.section_hero__phone {
+}
+
+.section_hero__phone_img {
+	display: block;
+}
+
+.section_hero__phone_img__in {
+	@extend %contain_img;
+}

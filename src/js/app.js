@@ -1,36 +1,19 @@
 // ------------------- imports
-import $ from 'jquery';
-import { GLOBAL_VARS } from 'utils/constants';
-import { documentReady, pageLoad } from 'utils';
-import pageWidgetInit from './dev_vendors/dev_widget';
+import { documentReady, pageLoad, onWindowResize } from 'utils';
 // ------------------- imports###
 
 // ------------------  import components
+import { menuInit, spollers } from 'components/functions';
 // ------------------  import components###
-
-window.jQuery = $;
-window.$ = $;
-
-const styles = ['color: #fff', 'background: #cf8e1f'].join(';');
-const message = 'Developed by Glivera-team https://glivera-team.com/';
-// eslint-disable-next-line no-console
-console.info('%c%s', styles, message);
-
-// -------------------  dev widget
-if (GLOBAL_VARS.projectDevStatus) {
-	pageWidgetInit();
-	console.log(process.env.NODE_ENV);
-}
-// -------------------  dev widget###
 
 // -------------------  global variables
 
 const readyFunc = () => {
-	console.log('ready');
+	menuInit();
+	spollers();
 };
 
 const loadFunc = () => {
-	console.log('page load');
 };
 
 documentReady(() => {

@@ -3,8 +3,64 @@
 	text-transform: uppercase;
 }
 
+%text_gradient {
+}
+
 // offsets
 
 %title_offset {
 	margin-bottom: 2rem;
+}
+
+%footer_text {
+	color: $grey;
+	font-size: 1.4rem;
+	line-height: 1.7;
+}
+
+%hover_opacity {
+	@extend %transition_opacity;
+	&:hover {
+		opacity: 0.6;
+	}
+}
+
+%color_gradient {
+	background: $gradient;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+%border_gradient {
+	position: relative;
+
+	&:after,
+	&:before {
+		position: absolute;
+		content: "";
+	}
+
+	&:after {
+		left: 0;
+		top: 0;
+
+		z-index: 1;
+
+		width: 100%;
+		height: 100%;
+
+		background: $gradient;
+	}
+
+	&::before {
+		left: 0.1rem;
+		top: 0.1rem;
+
+		z-index: 2;
+
+		width: calc(100% - 0.2rem);
+		height: calc(100% - 0.2rem);
+
+		background: $white;
+	}
 }

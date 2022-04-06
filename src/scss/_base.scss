@@ -2,14 +2,15 @@
 :root {
 	--full-screen: calc(var(--vh, 1vh) * 100);
 
-	--height-header: 10rem;
+	--height-header: 15.8rem;
+	--height-header-mobile: 7.6rem;
 	--height-footer: 10rem;
-	--gl-indent: 3rem;
+	--gl-indent: 1.6rem;
 }
 
 html {
 	height: 100%;
-	font: 400 calc(100vw / 1920 * 10)/1.33 $font_1;
+	font: 400 10px $font_1;
 }
 
 body {
@@ -30,6 +31,11 @@ body {
 	@supports (display: grid) {
 		display: block;
 	}
+
+	.pageLock & {
+		overflow: hidden;
+		touch-action: none;
+	}
 }
 
 .wrapper {
@@ -47,7 +53,6 @@ body {
 .base {
 	width: 100%;
 	position: relative;
-	padding: var(--height-header) 0 0;
 
 	flex: 1 0 auto;
 }
@@ -55,12 +60,6 @@ body {
 a {
 	text-decoration: none;
 	color: $color_link_base;
-
-	&:hover,
-	&:focus {
-		text-decoration: underline;
-	}
-
 }
 
 .elements_list {

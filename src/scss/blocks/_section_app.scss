@@ -1,0 +1,70 @@
+.section_app {
+}
+
+.section_app__content {
+}
+
+.section_app__head {
+	max-width: 37.8rem;
+	margin: 0 auto;
+
+	&:not(:last-child) {
+		margin-bottom: 2.8rem;
+	}
+}
+
+.section_app__list {
+	gap: 1rem;
+
+	@include flex_block(row, wrap, center, center, center);
+
+	&:not(:last-child) {
+		margin-bottom: 10rem;
+	}
+}
+
+.section_app__item {
+}
+
+.section_app__link {
+	display: block;
+
+	max-width: 10rem;
+	max-height: 4rem;
+
+	overflow: hidden;
+
+	@extend %transition_opacity;
+	&:hover {
+		opacity: 0.8;
+	}
+}
+
+.section_app_img {
+	display: block;
+}
+
+.section_app_img__in {
+	@extend %contain_img;
+}
+
+.section_app_phones {
+	gap: 2rem;
+
+	@include flex_block(row, nowrap, center, center, center);
+}
+
+.section_app_phones__item {
+	max-width: 30rem;
+	max-height: 56.6rem;
+
+	overflow: hidden;
+}
+
+.hero_section_img {
+	display: block;
+}
+
+.hero_section_img__in {
+	@extend %contain_img;
+}

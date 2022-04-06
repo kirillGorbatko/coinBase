@@ -1,0 +1,23 @@
+mixin head_block(data)
+	- mod = data.mod? data.mod : 'regullar';
+	- content_mod = data.content_mod? `head_block--${data.content_mod}` : '';
+		.head_block(class=`head_block--${mod} ${content_mod}`)
+			if (data.title)
+				if (mod === 'hero')
+					h1.head_block__title= data.title
+						if (data.title_bold)
+							span.head_block__title_in= data.title_bold
+				else 
+					if (data.max_width)
+						h2.head_block__title.head_block__title--thin= data.title
+					else
+						h2.head_block__title= data.title
+			if (data.text)
+				.head_block__text= data.text 
+			if (data.btn)
+				.head_block__footer
+					if (mod === 'hero')
+						a.head_block__button(href="#")
+							span.head_block__button_in= data.btn
+					else
+						a.head_block__button(href="#")= data.btn

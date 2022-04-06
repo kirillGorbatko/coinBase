@@ -1,0 +1,147 @@
+.section_blog {
+}
+
+.section_blog__content {
+}
+
+.section_blog__head {
+	@include bp($point_2, min) {
+		&:not(:last-child) {
+			margin-bottom: 5rem;
+		}
+	}
+
+	@include bp($point_3) {
+		&:not(:last-child) {
+			margin-bottom: 2.8rem;
+		}
+	}
+}
+
+.section_blog__list {
+	display: flex;
+
+	@include bp($point_3) {
+		flex-direction: column;
+		gap: 1.2rem;
+	}
+}
+
+.section_blog_card {
+	position: relative;
+
+	@extend %border_gradient;
+
+	box-shadow: 0 5rem 10rem rgba($black, 0.1);
+	background-color: $white;
+	border-radius: 1.5rem;
+
+	&::before,
+	&::after {
+		border-radius: 1.5rem;
+	}
+
+	@include bp($point_1, min) {
+		padding: 4rem 5.8rem;
+	}
+
+	@include bp($point_1 - 1) {
+		padding: 2.4rem 1.6rem;
+	}
+
+	@include bp($point_2, min) {
+		filter: grayscale(1);
+		transform: scale(0.8);
+		&:first-child {
+			transform: translate(5.9rem, 0) scale(0.8);
+		}
+		&:last-child {
+			transform: translate(-5.9rem, 0) scale(0.8);
+		}
+
+		transition: transform 0.3s ease, filter 0.3s ease;
+		will-change: transform, filter;
+
+		&:hover {
+			z-index: 2;
+			transform: scale(1);
+			filter: grayscale(0);
+
+			&:first-child {
+				transform: translate(5.9rem, 0) scale(1);
+			}
+
+			&:last-child {
+				transform: translate(-5.9rem, 0) scale(1);
+			}
+		}
+	}
+}
+
+.section_blog_card__wrap {
+	position: relative;
+	z-index: 2;
+}
+
+.section_blog_card__head {
+	@include flex_block(row, nowrap, flex-start, center, center);
+	gap: 1rem;
+
+	&:not(:last-child) {
+		margin-bottom: 2rem;
+	}
+}
+
+.section_blog_card__item {
+	@include flex_block(row, nowrap, flex-start, center, center);
+
+	gap: 1rem;
+
+	font-size: 1rem;
+	line-height: 2;
+
+	color: $black_3;
+
+	&:not(:last-child) {
+		&::after {
+			content: "";
+			display: block;
+			width: 0.1rem;
+			height: 1.4rem;
+
+			background-color: $black_3;
+		}
+	}
+}
+
+.section_blog_card__body {
+	&:not(:last-child) {
+		margin-bottom: 2.2rem;
+	}
+}
+
+.section_blog_card__title {
+	@extend %color_gradient;
+
+	font-size: 2.4rem;
+	font-weight: 700;
+	line-height: 1.6;
+
+	&:not(:last-child) {
+		margin-bottom: 1.4rem;
+	}
+}
+
+.section_blog_card__text {
+	font-size: 1.2rem;
+	line-height: 2.3;
+	color: $black_3;
+}
+
+.section_blog_card__footer {
+}
+
+.section_blog_card__button {
+	@extend %btn_size_1;
+	@extend %gradient_btn_1;
+}

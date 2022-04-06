@@ -1,9 +1,289 @@
 .footer {
-	width: 100%;
-	min-height: var(--height-footer);
-	flex: 0 0 auto;
+	background-color: $black_2;
 
-	font-size: 1rem;
+	@include bp($point_2, min) {
+		padding: 8rem var(--gl-indent) 4rem var(--gl-indent);
+	}
 
-	will-change: transform;
+	@include bp($point_3) {
+		padding: 4rem var(--gl-indent) 4rem var(--gl-indent);
+	}
+}
+
+.footer_in {
+	max-width: $page_width;
+	margin: 0 auto;
+}
+
+.footer__body {
+	display: grid;
+
+	gap: 4rem;
+
+	@include bp($point_2, min) {
+		grid-template-columns: 1fr auto;
+
+		&:not(:last-child) {
+			margin-bottom: 1.4rem;
+		}
+	}
+
+	@include bp($point_3) {
+		grid-template-columns: minmax(28.8rem, 1fr);
+
+		&:not(:last-child) {
+			margin-bottom: 2.4rem;
+		}
+	}
+}
+
+.footer__wrap {
+	max-width: 36.9rem;
+}
+
+.footer__logo {
+	@extend %hover_opacity;
+
+	display: block;
+
+	max-width: 11.2rem;
+	max-height: 2.3rem;
+
+	&:not(:last-child) {
+		margin-bottom: 3.4rem;
+	}
+}
+
+.footer__logo_img {
+}
+
+.footer__text {
+	@extend %footer_text;
+
+	&:not(:last-child) {
+		margin-bottom: 1.8rem;
+	}
+}
+
+.footer__copy {
+	color: $grey_4;
+	font-size: 1.2rem;
+	line-height: 2;
+
+	opacity: 0.4;
+}
+
+.footer__row {
+	@include flex_block(row, wrap);
+
+	@include bp($point_1, min) {
+		gap: 4rem 6.3rem;
+	}
+
+	@include bp($point_1) {
+		gap: 4rem;
+	}
+
+	@include bp($point_4 - 1) {
+		flex-direction: column;
+		flex-wrap: nowrap;
+	}
+}
+
+.footer__column {
+	height: 100%;
+}
+
+.footer__title {
+	font-family: $font_2;
+	color: $white;
+	font-size: 1.8rem;
+
+	.spollerInit & {
+		display: flex;
+		align-items: center;
+
+		&::after {
+			content: "";
+			display: block;
+			width: 0;
+			height: 0;
+
+			margin-left: 1rem;
+
+			border-left: 0.7rem solid transparent;
+			border-right: 0.7rem solid transparent;
+			border-top: 1rem solid $white;
+
+			@extend %transition_transform;
+		}
+	}
+
+	&.activeState {
+		&::after {
+			transform: rotate(-180deg);
+		}
+	}
+
+	@include bp($point_4, min) {
+		&:not(:last-child) {
+			margin-bottom: 3.4rem;
+		}
+	}
+
+	@include bp($point_4 - 1) {
+		&:not(:last-child) {
+			margin-bottom: 1.4rem;
+		}
+	}
+}
+
+.footer__content {
+	@include bp($point_4, min) {
+		display: grid;
+	}
+}
+
+//========================================================================================================================================================
+
+.footer_social {
+}
+
+.footer_social__list {
+	gap: 1.8rem;
+
+	@include flex_block(row, wrap, flex-start, center);
+}
+
+.footer_social__item {
+}
+
+.footer_social__link {
+	@extend %hover_opacity;
+
+	display: block;
+
+	max-width: 1.8rem;
+	height: 1.7rem;
+
+	color: $white;
+}
+
+//========================================================================================================================================================
+
+.footer_links {
+}
+
+.footer_links__list {
+}
+
+.footer_links__item {
+	&:not(:last-child) {
+		margin-bottom: 0.8rem;
+	}
+}
+
+.footer_links__link {
+	@extend %footer_text;
+	@extend %hover_opacity;
+}
+
+//========================================================================================================================================================
+
+.footer_contacts {
+	display: grid;
+	grid-template-rows: auto 1fr;
+}
+
+.footer_contacts__list {
+	&:not(:last-child) {
+		margin-bottom: 2.6rem;
+	}
+}
+
+.footer_contacts__item {
+	&:not(:last-child) {
+		margin-bottom: 0.6rem;
+	}
+}
+
+.footer_contacts__link {
+	@extend %footer_text;
+	@extend %hover_opacity;
+}
+
+.footer_contacts__download {
+	@extend %hover_opacity;
+	@extend %footer_text;
+
+	display: flex;
+	align-items: flex-end;
+	flex: 1 1 auto;
+}
+
+//========================================================================================================================================================
+
+.footer_gallery {
+	@include bp($point_1, min) {
+		margin-left: 6rem;
+	}
+}
+
+.footer_gallery__list {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+
+	gap: 1rem;
+}
+
+.footer_gallery__item {
+}
+
+.footer_gallery__link {
+	position: relative;
+
+	display: block;
+
+	background-color: $grey_2;
+
+	&::before,
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%) scale(0);
+		z-index: 1;
+
+		background-color: $white;
+
+		@extend %transition_transform;
+	}
+
+	&::before {
+		width: 31.4%;
+		height: 0.2rem;
+	}
+
+	&::after {
+		height: 31.4%;
+		width: 0.2rem;
+	}
+
+	&:hover {
+		&::before,
+		&::after {
+			transform: translate(-50%, -50%) scale(1);
+		}
+	}
+
+	@include bp($point_7, min) {
+		width: 7.4rem;
+		height: 7.4rem;
+	}
+
+	@include bp($point_7 - 1) {
+		width: 6.4rem;
+		height: 6.4rem;
+	}
 }

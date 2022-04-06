@@ -1,0 +1,43 @@
+.section_info {
+}
+
+.section_info--reverse {
+	.section_info__column:last-child {
+		@include bp($point_2, min) {
+			order: -1;
+		}
+	}
+}
+
+.section_info__row {
+	display: grid;
+	align-items: center;
+
+	@include bp($point_2, min) {
+		gap: 5.6rem;
+		grid-template-columns: repeat(auto-fit, minmax(47.3rem, 1fr));
+	}
+
+	@include bp($point_3) {
+		max-width: 70rem;
+		margin: 0 auto;
+		gap: 3.6rem;
+	}
+}
+
+.section_info__column {
+}
+
+.section_info__content {
+}
+
+.section_info__image {
+}
+
+.section_info_img {
+	display: block;
+}
+
+.section_info_img__in {
+	@extend %contain_img;
+}
