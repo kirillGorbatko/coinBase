@@ -1,0 +1,325 @@
+.section_table {
+	background: $gradient;
+
+	@include bp($point_2, min) {
+		padding: calc(12rem + 10%) var(--gl-indent) calc(12rem + 5%);
+		margin: -10% 0 -5%;
+	}
+
+	@include bp($point_3) {
+		padding: calc(6rem + 10%) var(--gl-indent) calc(6rem + 5%);
+		margin: -9% 0 -5%;
+	}
+}
+
+.section_table__body {
+	display: grid;
+
+	gap: 4rem;
+	overflow: hidden;
+
+	background-color: $white;
+	border-radius: 3rem;
+	box-shadow: 0 5rem 10rem rgba($black, 0.25);
+
+	@include bp($point_2, min) {
+		grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+
+		min-width: 100%;
+		max-width: 12rem;
+
+		margin: 0 auto;
+		padding: 2rem 4.8rem;
+	}
+
+	@include bp($point_3) {
+		padding: 2rem 1rem 0 2rem;
+	}
+}
+
+.section_table_column {
+	@include bp($point_2, min) {
+		&:nth-child(2) {
+			text-align: center;
+		}
+
+		&:last-child {
+			text-align: right;
+
+			.section_table_column__title {
+				padding-right: 4rem;
+			}
+		}
+	}
+	@include bp($point_3) {
+		text-align: center;
+	}
+}
+
+.section_table_column__title {
+	@extend %color_gradient;
+
+	position: relative;
+
+	font-size: 1.8rem;
+	font-weight: 700;
+
+	padding-bottom: 2.4rem;
+
+	&::before {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: -6.4rem;
+
+		width: calc(100% + 12.8rem);
+		height: 0.1rem;
+
+		background-color: $grey_5;
+	}
+
+	.spollerInit & {
+		@include flex_block(row, nowrap, center, center, center);
+		&::after {
+			content: "";
+			display: block;
+			width: 0;
+			height: 0;
+
+			margin-left: 1rem;
+
+			border-left: 0.7rem solid transparent;
+			border-right: 0.7rem solid transparent;
+			border-top: 1rem solid $pink;
+			border-radius: 0.4rem;
+
+			@extend %transition_transform;
+		}
+
+		&.activeState {
+			&::after {
+				transform: rotate(-180deg);
+			}
+		}
+	}
+}
+
+.section_table_column__body {
+	@include bp($point_2, min) {
+		padding-top: 4rem;
+	}
+
+	@include bp($point_3) {
+		max-width: 36rem;
+		margin: 0 auto;
+
+		padding: 2.8rem 0;
+	}
+}
+
+.section_table_column__list {
+	max-height: 22rem;
+
+	overflow-y: auto;
+
+	&::-webkit-scrollbar {
+		width: 0.4rem;
+	}
+	&::-webkit-scrollbar-track {
+		background-color: $grey_5;
+	}
+	&::-webkit-scrollbar-thumb {
+		background-color: $pink;
+	}
+
+	@include bp($point_2, min) {
+		padding: 0.2rem 2rem 0.2rem 0;
+	}
+
+	@include bp($point_3) {
+		padding: 0.2rem 1rem 0.2rem 0;
+	}
+}
+
+.section_table_column__item {
+	&:not(:last-child) {
+		margin-bottom: 4rem;
+
+		.section_table_column_exchanges__amounts {
+			border-bottom: 0.1rem solid $grey_5;
+		}
+	}
+}
+
+.section_table_column__coin {
+	gap: 1.6rem;
+
+	@include flex_block(row, nowrap, flex-start, center, center);
+}
+
+.section_table_column__value_label {
+	font-family: $font_2;
+	font-size: 1.4rem;
+	color: $black_3;
+	text-transform: capitalize;
+}
+
+.section_table_column__value_name {
+	font-size: 1.4rem;
+	color: $black_3;
+	text-transform: uppercase;
+}
+
+.section_table_column__value {
+	font-size: 1.4rem;
+	color: $black_3;
+	font-weight: 700;
+}
+
+//========================================================================================================================================================
+
+.section_table_column_icon {
+	width: 2.8rem;
+	max-height: 3rem;
+}
+
+.section_table_column_icon__in {
+	display: block;
+	max-width: 100%;
+}
+//========================================================================================================================================================
+
+.section_table_column_rates {
+	gap: 2rem 3.2rem;
+
+	@include bp($point_2, min) {
+		@include flex_block(row, wrap, flex-start, flex-start, center);
+	}
+
+	@include bp($point_3) {
+		@include flex_block(row, wrap, center, center, center);
+	}
+}
+
+.section_table_column_rates__list {
+}
+
+.section_table_column_rates__item {
+	gap: 0.4rem;
+
+	&:not(:last-child) {
+		margin-bottom: 1.4rem;
+	}
+
+	@include flex_block(row, nowrap, flex-start, center, center);
+}
+
+//========================================================================================================================================================
+
+.section_table_column_reserves {
+	gap: 2rem;
+
+	@include flex_block(row, wrap, space-between, center, center);
+}
+
+.section_table_column_reserves__amount {
+	margin-left: auto;
+	gap: 0.4rem;
+
+	@include flex_block(row, wrap, flex-start, center, flex-start);
+}
+
+//========================================================================================================================================================
+
+.section_table_column_exchanges {
+	@include bp($point_2, min) {
+		max-width: 26rem;
+		margin-left: auto;
+	}
+
+	@include bp($point_3) {
+		display: grid;
+		justify-items: center;
+	}
+}
+
+.section_table_column_exchanges_button {
+	display: grid;
+	justify-items: center;
+
+	&:not(:last-child) {
+		margin-bottom: 1.8rem;
+	}
+}
+
+.section_table_column_exchanges_button__in {
+	@extend %gradient_btn_1;
+	@extend %btn_size_2;
+
+	cursor: auto;
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.section_table_column_exchanges__names {
+	gap: 0.4rem;
+
+	&:not(:last-child) {
+		margin-bottom: 4rem;
+	}
+
+	@include flex_block(row, wrap, flex-start, center, center);
+}
+
+.section_table_column_exchanges_icon {
+}
+
+.section_table_column_exchanges_icon__in {
+	display: block;
+	max-width: 100%;
+}
+
+.section_table_column_exchanges__amounts {
+	padding-bottom: 2.4rem;
+	gap: 1.4rem;
+
+	@include flex_block(row, wrap, flex-start, center, center);
+}
+
+.section_table_column_exchanges__amount {
+	gap: 0.4rem;
+
+	@include flex_block(row, nowrap, flex-start, center, center);
+}
+
+//========================================================================================================================================================
+
+.section_table__wave {
+	position: absolute;
+	left: 0;
+	z-index: 1;
+
+	width: 100%;
+	overflow: hidden;
+}
+
+.section_table__wave--bottom {
+	bottom: -0.2rem;
+
+	max-height: 28%;
+}
+
+.section_table__wave--top {
+	top: -0.2rem;
+
+	max-height: 48%;
+}
+
+.section_table_img {
+	display: block;
+}
+
+.section_table_img__in {
+	@extend %contain_img;
+}

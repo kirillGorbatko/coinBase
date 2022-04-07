@@ -1,5 +1,6 @@
 mixin section_info(data)
 	- direction = data.direction? `section_info--${data.direction}` : '';
+
 	section.section.section_info(class=`${direction}`)
 		.section_in
 			.section_info__row

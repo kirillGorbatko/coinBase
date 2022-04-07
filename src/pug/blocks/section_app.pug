@@ -1,13 +1,26 @@
 section.section.section_app
+	.section_app__wave
+		+picture({
+			class: 'section_app_img',
+			customClass: 'section_app_img__in',
+			png: true,
+			img: 'wave_4',
+		})
+	.section_app__decor
+		+picture({
+			class: 'section_app_img',
+			customClass: 'section_app_img__in',
+			png: true,
+			img: 'decor',
+		})
 	.section_in 
-		.section_app__content 
-			.section_app__head 
+		.section_app__head 
 				+head_block({
 					title: 'Download our app',
 					content_mod: 'center',
 					text: 'Discover exclusive deals and discounts with our mobile experience.',
 				})
-			ul.section_app__list
+		ul.section_app__list
 				li.section_app__item
 					a.section_app__link(href="#")
 						+picture({
@@ -24,7 +37,7 @@ section.section.section_app
 							png: true,
 							img: 'google_play',
 						})
-			ul.section_app_phones
+		ul.section_app_phones
 				li.section_app_phones__item 
 					+picture({
 						class: 'hero_section_img',

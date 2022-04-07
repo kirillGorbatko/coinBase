@@ -1,5 +1,4 @@
 import SmoothScroll from 'smooth-scroll';
-import 'smoothscroll-for-websites';
 import { menuClose, bodyUnlock } from 'components/functions';
 import { GLOBAL_VARS } from 'utils/constants';
 import { onWindowScroll, documentReady } from 'utils';
@@ -15,7 +14,7 @@ function offset(el) {
 }
 
 function gotoBlock(targetBlock) {
-	let currentOffset = 70;
+	let currentOffset = 64;
 	let currentHeader = '';
 	let options = {
 		speedAsDuration: true,
@@ -29,11 +28,11 @@ function gotoBlock(targetBlock) {
 }
 
 function setActualState() {
-	const $oldCurrentLinks = document.querySelectorAll(`.gotoBlock.${GLOBAL_VARS.activeState}`);
+	const $oldCurrentLinks = document.querySelectorAll(`.gotoBlock.${GLOBAL_VARS.active}`);
 	if ($oldCurrentLinks.length) {
 		$oldCurrentLinks.forEach(element => {
 			const oldEl = element;
-			oldEl.classList.remove(GLOBAL_VARS.activeState);
+			oldEl.classList.remove(GLOBAL_VARS.active);
 		});
 	}
 	blocks.forEach(element => {
@@ -46,8 +45,7 @@ function setActualState() {
 				const $currentLinks = document.querySelectorAll(`.gotoBlock[href="#${block}"]`);
 				$currentLinks.forEach(currentEl => {
 					const currentLink = currentEl;
-					currentLink.classList.add(GLOBAL_VARS.activeState);
-					console.log(currentLink);
+					currentLink.classList.add(GLOBAL_VARS.active);
 				});
 			}
 		}
@@ -55,43 +53,31 @@ function setActualState() {
 }
 
 // ScrollOnClick (Navigation)
-const $links = document.querySelectorAll('.gotoBlock');
-if ($links.length) {
-	$links.forEach(element => {
-		const el = element;
-		const blockName = el.getAttribute('href').replace('#', '');
+export function ScrollOnClick() {
+	const $links = document.querySelectorAll('.gotoBlock');
+	if ($links.length) {
+		$links.forEach(element => {
+			const el = element;
+			const blockName = el.getAttribute('href').replace('#', '');
 
-		if (blockName !== '' && blocks.indexOf(blockName)) {
-			blocks.push(blockName);
-		}
-		el.addEventListener('click', (e) => {
-			if (document.querySelector('.menuOpen')) {
-				menuClose();
-				bodyUnlock();
+			if (blockName !== '' && blocks.indexOf(blockName)) {
+				blocks.push(blockName);
 			}
+			el.addEventListener('click', (e) => {
+				if (document.querySelector('.menuOpen')) {
+					menuClose();
+					bodyUnlock();
+				}
 
-			let targetBlockClass = el.getAttribute('href').replace('#', '');
-			let targetBlock = document.querySelector(`.${targetBlockClass}`);
-			gotoBlock(targetBlock);
-			e.preventDefault();
+				let targetBlockClass = el.getAttribute('href').replace('#', '');
+				let targetBlock = document.querySelector(`.${targetBlockClass}`);
+				gotoBlock(targetBlock);
+				e.preventDefault();
+			});
 		});
-	});
 
-	onWindowScroll(setActualState);
-}
-
-// ScrollOnClick (Simple)
-const $gotoLinks = document.querySelectorAll('.goTo');
-if ($gotoLinks.length) {
-	$gotoLinks.forEach(element => {
-		const gotoLink = element;
-		gotoLink.addEventListener('click', (e) => {
-			let targetBlockClass = gotoLink.getAttribute('href').replace('#', '');
-			let targetBlock = document.querySelector(`.${targetBlockClass}`);
-			gotoBlock(targetBlock);
-			e.preventDefault();
-		});
-	});
+		onWindowScroll(setActualState);
+	}
 }
 
 // Header scroll && Scroll items
@@ -119,7 +105,7 @@ function scrollOnscroll() {
 			}
 
 			if ((srcValue > scrItemOffset - scrItemPoint) && srcValue < (scrItemOffset + scrItemHeight)) {
-				scrItem.classList.add(GLOBAL_VARS.activeState);
+				scrItem.classList.add(GLOBAL_VARS.active);
 			}
 		});
 	}

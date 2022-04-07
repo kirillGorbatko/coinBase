@@ -1,5 +1,22 @@
 -
-	nav = ['Home', 'About Us', 'Blog', 'Contact Us',];
+	nav = [
+		{
+			text: 'Home',
+			link: 'section_hero',
+		},
+		{
+			text: 'About Us',
+			link: 'section_info',
+		},
+		{
+			text: 'Blog',
+			link: 'section_blog',
+		},
+		{
+			text: 'Contact Us',
+			link: 'section_subscribe',
+		},
+		];
 	sublist = ['Sell Bitcoin','Sell Giftcard',];
 
 mixin header
@@ -13,19 +30,18 @@ mixin header
 				.header__actions
 					.header__body
 						nav.header_menu
-							if (nav)
-								ul.header_menu__list 
-									each link in nav
-										li.header_menu__item 
-											a.header_menu__link(href="#")= link
+							ul.header_menu__list 
+								each link in nav
+									li.header_menu__item 
+										a.header_menu__link.gotoBlock(href=`#${link.link}`)= link.text
 						.header_sublist.subList.spollerItem
 							.header_sublist__title.spollerTitle Sell Bitcoin/ Giftcard
 							.header_sublist__body
-								if (sublist)
-									ul.header_sublist__list
-										each sublink in sublist 
-											li.header_sublist__item 
-												a.header_sublist__link(href="#")= sublink
+									if (sublist)
+										ul.header_sublist__list
+											each sublink in sublist 
+												li.header_sublist__item 
+													a.header_sublist__link(href="#")= sublink
 						.header__button.btn_base login
 					.header__button.header__button--clone.btn_base login
 					.header__icon.iconMenu

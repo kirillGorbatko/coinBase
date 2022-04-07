@@ -1,0 +1,143 @@
+- 
+	rates = [
+			{
+				name: 'btc',
+				buy_value: '₦350/$',
+				sell_value: '₦370/$',
+			},
+			{
+				name: 'eth',
+				buy_value: '₦345/$',
+				sell_value: '₦370/$',
+			},
+		];
+	reserves = [
+			{
+				icon: 'bank',
+				name: 'Bank Transfer',
+				value: '#3452030300303.24/$',
+				value_name: 'ngn',
+			},
+			{
+				icon: 'btc',
+				name: 'Bitcoin',
+				value: '399.98',
+				value_name: 'btc',
+			},
+			{
+				icon: 'eth',
+				name: 'Ethereum',
+				value: '1000.00',
+				value_name: 'eth',
+			},
+		];
+	exchanges = [
+			{
+				date: '1 hours ago',
+				name_from: 'bitcoin bTC',
+				name_to: 'bank transfer NGN',
+				value_from: '4.16',
+				value_from_name: 'btc',
+				value_to: '92345462299999',
+				value_to_name: 'ngn',
+			},
+			{
+				date: '8 hours ago',
+				name_from: 'bitcoin bTC',
+				name_to: 'bank transfer NGN',
+				value_from: '1.16',
+				value_from_name: 'btc',
+				value_to: '696152299929.23',
+				value_to_name: 'ngn',
+			},
+			{
+				date: '9 hours ago',
+				name_from: 'Amazon Card',
+				name_to: 'Bank Transfer NGN',
+				value_from: '12',
+				value_from_name: 'ac',
+				value_to: '6961522.23',
+				value_to_name: 'ngn',
+			},
+			{
+				date: '12 hours ago',
+				name_from: 'Ethereum Eth',
+				name_to: 'Bank Transfer NGN',
+				value_from: '23.1',
+				value_from_name: 'eth',
+				value_to: '893412421.32',
+				value_to_name: 'ngn',
+			},
+		];
+section.section.section_table
+	.section_table__wave.section_table__wave--top
+		+picture({
+			class: 'section_table_img',
+			customClass: 'section_table_img__in',
+			png: true,
+			img: 'wave_1',
+		})
+	.section_table__wave.section_table__wave--bottom
+		+picture({
+			class: 'section_table_img',
+			customClass: 'section_table_img__in',
+			png: true,
+			img: 'wave_2',
+		})
+	.section_in 
+		.section_table__body.spollerItem(data-spollers='1023,max').oneSpoller
+			.section_table_column 
+				h4.section_table_column__title.spollerTitle OUR RATES
+				.section_table_column__body 
+					ul.section_table_column__list
+						each rate in rates
+							li.section_table_column__item
+								.section_table_column_rates
+									.section_table_column__coin
+										.section_table_column_icon
+											img.section_table_column_icon__in(src=`images/${rate.name}.svg`, alt=`icon ${rate.name}`)
+										.section_table_column__value_name= rate.name
+									ul.section_table_column_rates__list
+										li.section_table_column_rates__item 
+											.section_table_column__value_label we buy @
+											.section_table_column__value= rate.buy_value
+										li.section_table_column_rates__item 
+											.section_table_column__value_label we sell @
+											.section_table_column__value= rate.sell_value
+			.section_table_column 
+				h4.section_table_column__title.spollerTitle OUR RESERVES
+				.section_table_column__body 
+					ul.section_table_column__list
+						each reserve in reserves
+							li.section_table_column__item
+								.section_table_column_reserves
+									.section_table_column__coin
+											.section_table_column_icon
+												img.section_table_column_icon__in(src=`images/${reserve.icon}.svg`, alt=`icon ${reserve.icon}`)
+											.section_table_column__value_label= reserve.name
+									.section_table_column_reserves__amount
+										.section_table_column__value= reserve.value
+										.section_table_column__value_name= reserve.value_name
+			.section_table_column
+				h4.section_table_column__title.spollerTitle LATEST EXCHANGES
+				.section_table_column__body
+					ul.section_table_column__list
+						each exchange in exchanges
+							li.section_table_column__item
+								.section_table_column_exchanges
+									.section_table_column_exchanges_button
+										.section_table_column_exchanges_button__in= exchange.date
+									.section_table_column_exchanges__names
+										.section_table_column__value_label= exchange.name_from
+										.section_table_column_exchanges_icon
+											img.section_table_column_exchanges_icon__in(src='images/transfer.svg', alt='icon transfer')
+										.section_table_column__value_label= exchange.name_to
+									.section_table_column_exchanges__amounts
+										.section_table_column_exchanges__amount
+											.section_table_column__value= exchange.value_from
+											.section_table_column__value_name= exchange.value_from_name
+											.section_table_column_exchanges_icon
+												img.section_table_column_exchanges_icon__in(src='images/double_transfer.svg', alt='icon double transfer')
+										.section_table_column_exchanges__amount
+											.section_table_column__value= exchange.value_to
+											.section_table_column__value_name= exchange.value_to_name

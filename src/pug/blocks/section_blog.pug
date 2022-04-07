@@ -1,16 +1,19 @@
 -	
 	cards = [
 		{
+			active: '',
 			date: '01 FEB, 2019',
 			theme: 'TECHNOLOGY',
 			title: 'HOW TO SELL YOUR ITUNES GIFTCARD WITH US .',
 		},
 		{
+			active: 'activeState',
 			date: '19 JUNE, 2019',
 			theme: 'BUSINESS',
 			title: 'ETH TO NAIRA EXCHANGE RATE IS NOW #400 PER...',
 		},	
 		{
+			active: '',
 			date: '01 FDEC, 2019',
 			theme: 'LIFESTYLE',
 			title: 'EXCHANGE 5 PRODUCTS & GET 1 FREE PRODUCT.',
@@ -19,22 +22,21 @@
 
 section.section.section_blog
 	.section_in 
-		.section_blog__content 
-			.section_blog__head 
-				+head_block({
-					title: 'Our blog',
-					content_mod: 'center',
-					text: 'Get to know the latest stuff via our blog post.',
-				})
-			ul.section_blog__list
-				each card in cards 
-					li.section_blog_card 
-						.section_blog_card__wrap
-							.section_blog_card__head
-								.section_blog_card__item= card.date
-								.section_blog_card__item= card.theme
-							.section_blog_card__body
-								h3.section_blog_card__title= card.title
-								.section_blog_card__text Lorem ipsum dolor sit amet, magna habe mus ius ad, qui minimum voluptaria in. Ad mei modus quodsi complectitur, postea...
-							.section_blog_card__footer 
-								a.section_blog_card__button(href="#") READ MORE
+		.section_blog__head 
+			+head_block({
+				title: 'Our blog',
+				content_mod: 'center',
+				text: 'Get to know the latest stuff via our blog post.',
+			})
+		ul.section_blog__list.blogsList
+			each card in cards 
+				li.section_blog_card.blogCard(class=`${card.active}`)
+					.section_blog_card__wrap
+						.section_blog_card__head
+							.section_blog_card__item= card.date
+							.section_blog_card__item= card.theme
+						.section_blog_card__body
+							h3.section_blog_card__title= card.title
+							.section_blog_card__text Lorem ipsum dolor sit amet, magna habe mus ius ad, qui minimum voluptaria in. Ad mei modus quodsi complectitur, postea...
+						.section_blog_card__footer 
+							a.section_blog_card__button(href="#") READ MORE

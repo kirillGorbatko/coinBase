@@ -1,9 +1,6 @@
 .section_blog {
 }
 
-.section_blog__content {
-}
-
 .section_blog__head {
 	@include bp($point_2, min) {
 		&:not(:last-child) {
@@ -62,7 +59,7 @@
 		transition: transform 0.3s ease, filter 0.3s ease;
 		will-change: transform, filter;
 
-		&:hover {
+		&.activeState {
 			z-index: 2;
 			transform: scale(1);
 			filter: grayscale(0);
@@ -142,6 +139,6 @@
 }
 
 .section_blog_card__button {
-	@extend %btn_size_1;
+	@extend %btn_size_3;
 	@extend %gradient_btn_1;
 }

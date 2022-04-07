@@ -1,7 +1,33 @@
 .section_app {
-}
+	&::before {
+		content: "";
+		position: absolute;
+		left: 0;
 
-.section_app__content {
+		width: 100%;
+
+		background: $gradient;
+	}
+
+	@include bp($point_2, min) {
+		padding: 10% var(--gl-indent) 12rem;
+		margin: -10% 0 0;
+
+		&::before {
+			top: 24%;
+			height: 50%;
+		}
+	}
+
+	@include bp($point_3) {
+		padding: calc(6rem + 10%) var(--gl-indent) 6rem;
+		margin: -10% 0 0;
+
+		&::before {
+			top: 43%;
+			height: 36%;
+		}
+	}
 }
 
 .section_app__head {
@@ -18,8 +44,16 @@
 
 	@include flex_block(row, wrap, center, center, center);
 
-	&:not(:last-child) {
-		margin-bottom: 10rem;
+	@include bp($point_2, min) {
+		&:not(:last-child) {
+			margin-bottom: 10rem;
+		}
+	}
+
+	@include bp($point_3) {
+		&:not(:last-child) {
+			margin-bottom: 4rem;
+		}
 	}
 }
 
@@ -66,5 +100,43 @@
 }
 
 .hero_section_img__in {
+	@extend %contain_img;
+}
+
+//========================================================================================================================================================
+
+.section_app__wave {
+	position: absolute;
+	left: 0;
+	z-index: 1;
+
+	width: 100%;
+	max-height: 42.8%;
+
+	@include bp($point_2, min) {
+		top: 18%;
+	}
+	@include bp($point_3) {
+		top: calc(42% - 0.6rem);
+	}
+}
+
+.section_app__decor {
+	position: absolute;
+	bottom: 32%;
+	left: 15.5%;
+	width: 9.2rem;
+	height: 7.7rem;
+
+	@include bp($point_3) {
+		display: none;
+	}
+}
+
+.section_app_img {
+	display: block;
+}
+
+.section_app_img__in {
 	@extend %contain_img;
 }

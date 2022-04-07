@@ -1,7 +1,5 @@
 .head_block--regullar {
 	.head_block__title {
-		@extend %color_gradient;
-
 		font-size: 2.8rem;
 		font-weight: 700;
 
@@ -34,13 +32,7 @@
 		}
 	}
 
-	.head_block__title.head_block--white {
-		color: $white;
-	}
-
 	.head_block__text {
-		color: $black_3;
-
 		@include bp($point_2, min) {
 			font-size: 1.6rem;
 			line-height: 2.5;
@@ -50,10 +42,6 @@
 			font-size: 1.5rem;
 			line-height: 2;
 		}
-	}
-
-	.head_block__text.head_block--white {
-		color: $white;
 	}
 
 	.head_block__button {
@@ -123,7 +111,12 @@
 	}
 }
 
-.head_block__title {
+.head_block__title--regullar {
+	@extend %color_gradient;
+}
+
+.head_block__title--white {
+	color: $white;
 }
 
 .head_block__title--thin {
@@ -134,6 +127,14 @@
 	&:not(:last-child) {
 		margin-bottom: 3rem;
 	}
+}
+
+.head_block__text--regullar {
+	color: $black_3;
+}
+
+.head_block__text--white {
+	color: $white;
 }
 
 .head_block__button {

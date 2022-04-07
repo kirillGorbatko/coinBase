@@ -1,14 +1,14 @@
 .section_hero {
-	background: $gradient;
+	background: $gradient_2;
 
 	@include bp($point_2, min) {
 		min-height: var(--full-screen);
 
-		padding: calc(var(--height-header) + 6rem) var(--gl-indent) 6rem;
+		padding: calc(var(--height-header) + 6rem) var(--gl-indent) 12rem;
 	}
 
 	@include bp($point_3) {
-		padding: calc(var(--height-header-mobile) + 8rem) var(--gl-indent) 6rem;
+		padding: calc(var(--height-header-mobile) + 4rem) var(--gl-indent) calc(6rem + 10%);
 	}
 }
 
@@ -19,7 +19,7 @@
 	gap: 3.6rem;
 
 	@include bp($point_2, min) {
-		grid-template-columns: repeat(auto-fit, minmax(48.6rem, 1fr));
+		grid-template-columns: repeat(auto-fit, minmax(47.8rem, 1fr));
 	}
 
 	@include bp($point_3) {
@@ -45,5 +45,27 @@
 }
 
 .section_hero__phone_img__in {
+	@extend %contain_img;
+}
+
+//========================================================================================================================================================
+
+.section_hero__wave {
+	position: absolute;
+	bottom: -0.2rem;
+	left: 0;
+	z-index: 1;
+
+	width: 100%;
+	max-height: 20%;
+
+	overflow: hidden;
+}
+
+.hero_section_img {
+	display: block;
+}
+
+.hero_section_img__in {
 	@extend %contain_img;
 }

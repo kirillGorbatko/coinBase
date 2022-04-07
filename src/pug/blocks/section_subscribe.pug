@@ -1,17 +1,16 @@
 section.section.section_subscribe
 	.section_in 
-		.section_subscribe__content 
-			.section_subscribe__head 
-				+head_block({
-					title: 'Subscribe our newsletter',
-					content_mod: 'center',
-					text: 'Subscribe to our newsletter for daily/weekly update of our products and services.',
+		.section_subscribe__head 
+			+head_block({
+				title: 'Subscribe our newsletter',
+				content_mod: 'center',
+				text: 'Subscribe to our newsletter for daily/weekly update of our products and services.',
+			})
+		form.section_subscribe__form(action="#")
+			.section_subscribe__input 
+				+form_input({
+					type: 'text',
+					placeholder: 'EMAIL',
+					id: 'input_1',
 				})
-			form.section_subscribe__form(action="#")
-				.section_subscribe__input 
-					+form_input({
-						type: 'text',
-						placeholder: 'EMAIL',
-						id: 'input_1',
-					})
-				button.section_subscribe__button(type="submit").btn_base discover
+			button.section_subscribe__button(type="submit").btn_base discover

@@ -1,11 +1,186 @@
+-
+	reviews = [
+		{
+			author: 'Femi from Nigeria',
+			stars: 5,
+			label: 'Wonderful service',
+			text: 'Good deal and very wonderful service thank you.',
+			icon: 'btc',
+			active: '',
+			size: 'regular',
+			reverse: '',
+		},
+		{
+			author: 'Taras from Ukraine',
+			stars: 5,
+			label: 'Wonderful service',
+			text: 'Good deal and very wonderful service thank you.',
+			icon: 'bank',
+			active: '',
+			size: 'big',
+			reverse: '',
+		},
+		{
+			author: 'Anna from Germany',
+			stars: 1,
+			label: 'Wonderful service',
+			text: 'Good deal and very wonderful service thank you.',
+			icon: 'eth',
+			active: '',
+			size: 'small',
+			reverse: '',
+		},
+		{
+			author: 'John from USA',
+			stars: 5,
+			label: 'Wonderful service',
+			text: 'Good deal and very wonderful service thank you.',
+			icon: 'btc',
+			active: '',
+			size: 'medium',
+			reverse: '',
+		},
+		{
+			author: '??? from ???',
+			stars: 2,
+			label: 'Wonderful service',
+			text: 'Good deal and very wonderful service thank you.',
+			icon: 'eth',
+			active: '',
+			size: 'medium',
+			reverse: '',
+		},
+		{
+			author: 'Joe from Nigeria',
+			stars: 5,
+			label: 'Wonderful service',
+			text: 'Good deal and very wonderful service thank you.',
+			icon: 'btc',
+			active: '',
+			size: 'medium',
+			reverse: '',
+		},
+		{
+			author: 'Alex from Austria',
+			stars: 3,
+			label: 'Wonderful service',
+			text: 'Good deal and very wonderful service thank you.',
+			icon: 'eth',
+			active: '',
+			size: 'regular',
+			reverse: 'activeState',
+		},
+		{
+			author: 'Femi from Paris',
+			stars: 5,
+			label: 'Wonderful service',
+			text: 'Good deal and very wonderful service thank you.',
+			icon: 'btc',
+			active: '',
+			size: 'regular',
+			reverse: 'section_reviews__item--reverse',
+		},
+		{
+			author: 'George from Georgia',
+			stars: 4,
+			label: 'Wonderful service',
+			text: 'Good deal and very wonderful service thank you.',
+			icon: 'eth',
+			active: '',
+			size: 'small',
+			reverse: '',
+		},
+		{
+			author: 'Julon from Kazahstan',
+			stars: 5,
+			label: 'Wonderful service',
+			text: 'Good deal and very wonderful service thank you.',
+			icon: 'btc',
+			active: '',
+			size: 'regular',
+			reverse: 'section_reviews__item--reverse',
+		},
+		{
+			author: '??? from Uzbekistan',
+			stars: 3,
+			label: 'Wonderful service',
+			text: 'Good deal and very wonderful service thank you.',
+			icon: 'eth',
+			active: '',
+			size: 'regular',
+			reverse: 'section_reviews__item--reverse',
+		},
+		{
+			author: 'Tourist21 from ???',
+			stars: 5,
+			label: 'Wonderful service',
+			text: 'Good deal and very wonderful service thank you.',
+			icon: 'bank',
+			active: '',
+			size: 'regular',
+			reverse: 'section_reviews__item--reverse',
+		},
+		{
+			author: 'Ivan from London',
+			stars: 4,
+			label: 'Wonderful service',
+			text: 'Good deal and very wonderful service thank you.',
+			icon: 'btc',
+			active: '',
+			size: 'regular',
+			reverse: 'section_reviews__item--reverse',
+		},
+	];
+
 section.section.section_reviews
+	.section_reviews__wave.section_reviews__wave--top
+		+picture({
+			class: 'section_reviews_img',
+			customClass: 'section_reviews_img__in',
+			png: true,
+			img: 'wave_1',
+		})
+	.section_reviews__wave.section_reviews__wave--bottom
+		+picture({
+			class: 'section_reviews_img',
+			customClass: 'section_reviews_img__in',
+			png: true,
+			img: 'wave_2',
+		})
+	.section_reviews__decor.section_reviews__decor--top
+		+picture({
+			class: 'section_reviews_img',
+			customClass: 'section_reviews_img__in',
+			png: true,
+			img: 'decor',
+		})
+	.section_reviews__decor.section_reviews__decor--bottom
+		+picture({
+			class: 'section_reviews_img',
+			customClass: 'section_reviews_img__in',
+			png: true,
+			img: 'decor',
+		})
 	.section_in 
-		.section_reviews__content 
-			.section_reviews__head 
+		.section_reviews__head 
 				+head_block({
 					title: '10,000 Satisfied clients around the world',
 					content_mod: 'center',
 					color_mod: 'white',
 					text: 'Yeah! we’re proud with numbers. We’ve helped thousands of clients all around the world with our bespoke service. Hover ontop of them pic to view their testimonials.',
 				})
-			
+		.section_reviews__wrap.reviewBody
+				ul.section_reviews__list
+					each review in reviews 
+						li.section_reviews__item.reviewItem(class=`section_reviews__item--${review.size} ${review.active} ${review.reverse}`)
+							.section_reviews_body
+								.section_reviews_body__content
+									.section_reviews_body__author= review.author
+									ul.section_reviews_body__stars
+										+loop_while(review.stars)
+											li.section_reviews_body_star
+												img.section_reviews_body_star__icon(src='images/star.svg', alt='icon star')
+									.section_reviews_body__label= review.label
+									.section_reviews_body__text= review.text
+									.section_reviews_body_coin
+										img.section_reviews_body_coin_icon(src=`images/${review.icon}.svg`, alt=`icon ${review.icon}`)

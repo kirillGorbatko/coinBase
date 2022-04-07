@@ -14,6 +14,9 @@
 }
 
 .section_in {
+	position: relative;
+	z-index: 3;
+
 	max-width: $page_width;
 	width: 100%;
 	margin: 0 auto;
