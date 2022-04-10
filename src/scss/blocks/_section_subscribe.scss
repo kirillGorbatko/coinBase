@@ -24,6 +24,7 @@
 	@include bp($point_5, min) {
 		@include flex_block(row, wrap, center, center, center);
 	}
+
 	@include bp($point_5 - 1) {
 		display: grid;
 		max-width: 28.8rem;

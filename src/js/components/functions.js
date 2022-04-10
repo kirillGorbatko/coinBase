@@ -72,13 +72,6 @@ export function uniqArray(array) {
 	});
 }
 
-export function removeClasses(array, className) {
-	array.forEach(el => {
-		const element = el;
-		element.classList.remove(className);
-	});
-}
-
 // Show card on hover
 export function setActionOnHover() {
 	const blogBody = document.querySelector('.blogsList');
@@ -111,11 +104,13 @@ export function showReviewOnClick() {
 				if (elTarget.closest(`.${reviewClass}.${GLOBAL_VARS.active}`)) {
 					elTarget.classList.remove(GLOBAL_VARS.active);
 				} else {
-					removeClasses($reviews, GLOBAL_VARS.active);
-					elTarget.classList.toggle(GLOBAL_VARS.active);
+					let activeReview = document.querySelector(`.${reviewClass}.${GLOBAL_VARS.active}`);
+					if (activeReview) activeReview.classList.remove(GLOBAL_VARS.active);
+					elTarget.classList.add(GLOBAL_VARS.active);
 				}
 			} else {
-				removeClasses($reviews, GLOBAL_VARS.active);
+				let activeReview = document.querySelector(`.${reviewClass}.${GLOBAL_VARS.active}`);
+				if (activeReview) activeReview.classList.remove(GLOBAL_VARS.active);
 			}
 		});
 	}

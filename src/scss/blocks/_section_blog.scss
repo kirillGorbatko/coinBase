@@ -47,17 +47,18 @@
 	}
 
 	@include bp($point_2, min) {
-		filter: grayscale(1);
 		transform: scale(0.8);
+		filter: grayscale(1);
+
+		transition: transform 0.3s ease, filter 0.3s ease;
+		will-change: transform, filter;
+
 		&:first-child {
 			transform: translate(5.9rem, 0) scale(0.8);
 		}
 		&:last-child {
 			transform: translate(-5.9rem, 0) scale(0.8);
 		}
-
-		transition: transform 0.3s ease, filter 0.3s ease;
-		will-change: transform, filter;
 
 		&.activeState {
 			z-index: 2;
@@ -67,7 +68,6 @@
 			&:first-child {
 				transform: translate(5.9rem, 0) scale(1);
 			}
-
 			&:last-child {
 				transform: translate(-5.9rem, 0) scale(1);
 			}
@@ -81,17 +81,16 @@
 }
 
 .section_blog_card__head {
-	@include flex_block(row, nowrap, flex-start, center, center);
 	gap: 1rem;
 
 	&:not(:last-child) {
 		margin-bottom: 2rem;
 	}
+
+	@include flex_block(row, nowrap, flex-start, center, center);
 }
 
 .section_blog_card__item {
-	@include flex_block(row, nowrap, flex-start, center, center);
-
 	gap: 1rem;
 
 	font-size: 1rem;
@@ -109,6 +108,8 @@
 			background-color: $black_3;
 		}
 	}
+
+	@include flex_block(row, nowrap, flex-start, center, center);
 }
 
 .section_blog_card__body {

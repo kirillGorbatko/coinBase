@@ -1,12 +1,12 @@
 section.section.section_app
-	.section_app__wave
+	.section_app__wave.topWave
 		+picture({
 			class: 'section_app_img',
 			customClass: 'section_app_img__in',
 			png: true,
 			img: 'wave_4',
 		})
-	.section_app__decor
+	.section_app__decor.topDecor
 		+picture({
 			class: 'section_app_img',
 			customClass: 'section_app_img__in',
@@ -21,7 +21,7 @@ section.section.section_app
 					text: 'Discover exclusive deals and discounts with our mobile experience.',
 				})
 		ul.section_app__list
-				li.section_app__item
+				li.section_app__item.appLink
 					a.section_app__link(href="#")
 						+picture({
 							class: 'section_app_img',
@@ -29,7 +29,7 @@ section.section.section_app
 							png: true,
 							img: 'app_store',
 						})
-				li.section_app__item
+				li.section_app__item.appLink
 					a.section_app__link(href="#")
 						+picture({
 							class: 'section_app_img',
@@ -38,14 +38,14 @@ section.section.section_app
 							img: 'google_play',
 						})
 		ul.section_app_phones
-				li.section_app_phones__item 
+				li.section_app_phones__item.appPhone 
 					+picture({
 						class: 'hero_section_img',
 						customClass: 'hero_section_img__in',
 						png: true,
 						img: 'phone1',
 					})
-				li.section_app_phones__item 
+				li.section_app_phones__item.appPhone
 					+picture({
 						class: 'hero_section_img',
 						customClass: 'hero_section_img__in',

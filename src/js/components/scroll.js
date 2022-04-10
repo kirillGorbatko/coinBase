@@ -80,9 +80,7 @@ export function ScrollOnClick() {
 	}
 }
 
-// Header scroll && Scroll items
-let $animateItems = document.querySelectorAll('.animateItem');
-
+// Header scroll
 function scrollOnscroll() {
 	let srcValue = window.scrollY;
 	let header = document.querySelector('header.header');
@@ -92,22 +90,6 @@ function scrollOnscroll() {
 		} else {
 			header.classList.remove('headerScroll');
 		}
-	}
-	if ($animateItems.length) {
-		$animateItems.forEach(el => {
-			const scrItem = el;
-			let scrItemOffset = offset(scrItem).top;
-			let scrItemHeight = scrItem.offsetHeight;
-
-			let scrItemPoint = window.innerHeight - (window.innerHeight - scrItemHeight) / 1.5;
-			if (window.innerHeight > scrItemHeight) {
-				scrItemPoint = window.innerHeight - scrItemHeight / 1.5;
-			}
-
-			if ((srcValue > scrItemOffset - scrItemPoint) && srcValue < (scrItemOffset + scrItemHeight)) {
-				scrItem.classList.add(GLOBAL_VARS.active);
-			}
-		});
 	}
 }
 

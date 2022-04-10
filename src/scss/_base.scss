@@ -47,6 +47,61 @@ body {
 		overflow: hidden;
 		touch-action: none;
 	}
+
+	// Page load animation
+	opacity: 0;
+	transition: all 1s ease 0s;
+	will-change: transition;
+
+	@include bp($point_2, min) {
+		.head_block--hero {
+			.head_block__title {
+				opacity: 0;
+				transform: translate(0, 10%);
+
+				transition: opacity 0.8s ease 0.5s, transform 0.8s ease 0.5s;
+			}
+			.head_block__text {
+				opacity: 0;
+				transform: translate(0, 20%);
+
+				transition: opacity 0.8s ease 1s, transform 0.8s ease 1s;
+			}
+			.head_block__footer {
+				opacity: 0;
+				transform: translate(0, 30%);
+
+				transition: opacity 0.8s ease 1.4s, transform 0.8s ease 1.4s;
+			}
+		}
+
+		.section_hero__phone {
+			opacity: 0;
+			transform: translate(0, 20%);
+
+			transition: opacity 1.7s ease 0.5s, transform 1.7s ease 0.5s;
+		}
+
+		.pageLoaded & {
+			.head_block--hero {
+				.head_block__title,
+				.head_block__text,
+				.head_block__footer {
+					opacity: 1;
+					transform: translate(0, 0);
+				}
+			}
+
+			.section_hero__phone {
+				opacity: 1;
+				transform: translate(0, 0);
+			}
+		}
+	}
+
+	.pageLoaded & {
+		opacity: 1;
+	}
 }
 
 .wrapper {

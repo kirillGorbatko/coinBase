@@ -1,5 +1,15 @@
 .section_table {
-	background: $gradient;
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		width: 100%;
+		height: 100%;
+
+		background: $gradient;
+	}
 
 	@include bp($point_2, min) {
 		padding: calc(12rem + 10%) var(--gl-indent) calc(12rem + 5%);
@@ -16,8 +26,8 @@
 	display: grid;
 
 	gap: 4rem;
-	overflow: hidden;
 
+	overflow: hidden;
 	background-color: $white;
 	border-radius: 3rem;
 	box-shadow: 0 5rem 10rem rgba($black, 0.25);

@@ -133,28 +133,28 @@
 	];
 
 section.section.section_reviews
-	.section_reviews__wave.section_reviews__wave--top
+	.section_reviews__wave.section_reviews__wave--top.topWave
 		+picture({
 			class: 'section_reviews_img',
 			customClass: 'section_reviews_img__in',
 			png: true,
 			img: 'wave_1',
 		})
-	.section_reviews__wave.section_reviews__wave--bottom
+	.section_reviews__wave.section_reviews__wave--bottom.bottomWave
 		+picture({
 			class: 'section_reviews_img',
 			customClass: 'section_reviews_img__in',
 			png: true,
 			img: 'wave_2',
 		})
-	.section_reviews__decor.section_reviews__decor--top
+	.section_reviews__decor.section_reviews__decor--top.topDecor
 		+picture({
 			class: 'section_reviews_img',
 			customClass: 'section_reviews_img__in',
 			png: true,
 			img: 'decor',
 		})
-	.section_reviews__decor.section_reviews__decor--bottom
+	.section_reviews__decor.section_reviews__decor--bottom.bottomDecor
 		+picture({
 			class: 'section_reviews_img',
 			customClass: 'section_reviews_img__in',
@@ -170,7 +170,7 @@ section.section.section_reviews
 					text: 'Yeah! we’re proud with numbers. We’ve helped thousands of clients all around the world with our bespoke service. Hover ontop of them pic to view their testimonials.',
 				})
 		.section_reviews__wrap.reviewBody
-				ul.section_reviews__list
+				ul.section_reviews__list.reviewList
 					each review in reviews 
 						li.section_reviews__item.reviewItem(class=`section_reviews__item--${review.size} ${review.active} ${review.reverse}`)
 							.section_reviews_body

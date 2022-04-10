@@ -38,9 +38,11 @@
 .section_reviews__list {
 	@include bp($point_3) {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(28.8rem, 1fr));
 		justify-items: center;
 		gap: 4rem;
+	}
+	@media (max-width: $point_3) and (min-width: $point_5) {
+		grid-template-columns: 1fr 1fr;
 	}
 }
 
@@ -53,10 +55,25 @@
 		cursor: pointer;
 
 		&.activeState {
+			z-index: 1;
 			cursor: auto;
 
 			&::before {
 				transform: translate(-50%, -50%) scale(1);
+			}
+
+			.section_reviews_body {
+				opacity: 1;
+				pointer-events: all;
+
+				.section_reviews_body__content {
+					transform: translate(0, 0);
+
+					&::before {
+						opacity: 1;
+						transform: translate(calc(-100% - 2rem), -50%);
+					}
+				}
 			}
 		}
 
@@ -154,6 +171,7 @@
 				border-right: 3.8rem solid rgba($white, 0.7);
 			}
 		}
+
 		&:nth-child(even) {
 			.section_reviews_body__content::after {
 				content: "";
@@ -264,10 +282,6 @@
 		transition: opacity 0.3s ease, background-color 0.3s ease;
 		will-change: opacity, background-color;
 
-		.activeState & {
-			opacity: 1;
-			pointer-events: all;
-		}
 		&:hover {
 			background-color: rgba($white, 0.9);
 		}
@@ -280,12 +294,16 @@
 	padding-right: 2.4rem;
 
 	@include bp($point_2, min) {
+		transform: translate(-20%, 0);
+
+		transition: transform 0.3s ease;
+		will-change: transform;
+
 		&::before {
 			content: "";
 			position: absolute;
 			left: 0;
 			top: 50%;
-			transform: translate(calc(-100% - 2rem), -50%);
 
 			width: 0;
 			height: 0;
@@ -293,6 +311,12 @@
 			border-top: 1.4rem solid transparent;
 			border-bottom: 1.4rem solid transparent;
 			border-right: 3.8rem solid rgba($white, 0.7);
+
+			transform: translate(40%, -50%);
+			opacity: 0;
+
+			transition: opacity 0.3s ease, transform 0.3s ease;
+			will-change: opacity, transform;
 		}
 	}
 }

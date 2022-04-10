@@ -53,13 +53,13 @@
 	@include z-index(header);
 
 	@include bp($point_2, min) {
-		padding: 5.2rem var(--gl-indent);
 		min-height: var(--height-header);
+		padding: 5.2rem var(--gl-indent);
 	}
 
 	@include bp($point_3) {
-		padding: 2rem var(--gl-indent);
 		min-height: var(--height-header-mobile);
+		padding: 2rem var(--gl-indent);
 	}
 }
 
@@ -325,8 +325,8 @@
 
 .header_sublist__list {
 	min-width: 14.2rem;
-	overflow: hidden;
 
+	overflow: hidden;
 	border: 0.1rem solid $grey_3;
 	border-radius: 0.5rem;
 	background-color: $white;
@@ -360,6 +360,7 @@
 		.header_sublist__link {
 			color: $white;
 		}
+
 		&::before {
 			opacity: 1;
 		}
@@ -373,10 +374,10 @@
 	display: block;
 	width: 100%;
 
+	padding: 0.6rem 1.2rem;
+
 	color: $black_3;
 	line-height: 1.5;
-
-	padding: 0.6rem 1.2rem;
 
 	@extend %transition_color;
 
@@ -395,6 +396,7 @@
 	@include bp($point_2, min) {
 		display: none;
 	}
+
 	@include bp($point_3) {
 		position: relative;
 		z-index: 5;
@@ -443,13 +445,13 @@
 			}
 
 			&::before {
-				transform: rotate(-45deg);
 				top: calc(50% - 0.1rem);
+				transform: rotate(-45deg);
 			}
 
 			&::after {
-				transform: rotate(45deg);
 				bottom: calc(50% - 0.1rem);
+				transform: rotate(45deg);
 			}
 		}
 	}

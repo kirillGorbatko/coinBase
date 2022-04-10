@@ -31,7 +31,7 @@ section.section.section_blog
 		ul.section_blog__list.blogsList
 			each card in cards 
 				li.section_blog_card.blogCard(class=`${card.active}`)
-					.section_blog_card__wrap
+					.section_blog_card__wrap.blogWrap
 						.section_blog_card__head
 							.section_blog_card__item= card.date
 							.section_blog_card__item= card.theme

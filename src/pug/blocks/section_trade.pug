@@ -1,5 +1,5 @@
 section.section.section_trade
-	.section_trade__wave 
+	.section_trade__wave.bottomWave
 		+picture({
 			class: 'section_trade_img',
 			customClass: 'section_trade_img__in',
@@ -15,12 +15,12 @@ section.section.section_trade
 							content_mod: 'center',
 						})
 				ul.section_trade__list 
-					li.section_trade__item 
+					li.section_trade__item.tradeItem
 						a.section_trade__link(href="#")
 							.section_trade__icon 
 								img.section_trade__icon_img(src="images/btc.svg", alt="bitcoin icon")
 							.section_trade__name Bitcoin
-					li.section_trade__item 
+					li.section_trade__item.tradeItem
 						a.section_trade__link(href="#")
 							.section_trade__icon 
 								img.section_trade__icon_img(src="images/card.svg", alt="card icon")

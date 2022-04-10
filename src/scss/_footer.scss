@@ -117,11 +117,11 @@
 
 			@extend %transition_transform;
 		}
-	}
 
-	&.activeState {
-		&::after {
-			transform: rotate(-180deg);
+		&.activeState {
+			&::after {
+				transform: rotate(-180deg);
+			}
 		}
 	}
 

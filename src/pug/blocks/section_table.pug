@@ -69,15 +69,16 @@
 				value_to_name: 'ngn',
 			},
 		];
+
 section.section.section_table
-	.section_table__wave.section_table__wave--top
+	.section_table__wave.section_table__wave--top.topWave
 		+picture({
 			class: 'section_table_img',
 			customClass: 'section_table_img__in',
 			png: true,
 			img: 'wave_1',
 		})
-	.section_table__wave.section_table__wave--bottom
+	.section_table__wave.section_table__wave--bottom.bottomWave
 		+picture({
 			class: 'section_table_img',
 			customClass: 'section_table_img__in',
@@ -85,8 +86,8 @@ section.section.section_table
 			img: 'wave_2',
 		})
 	.section_in 
-		.section_table__body.spollerItem(data-spollers='1023,max').oneSpoller
-			.section_table_column 
+		ul.section_table__body.spollerItem(data-spollers='1023,max').oneSpoller
+			li.section_table_column.tableColumn
 				h4.section_table_column__title.spollerTitle OUR RATES
 				.section_table_column__body 
 					ul.section_table_column__list
@@ -104,7 +105,7 @@ section.section.section_table
 										li.section_table_column_rates__item 
 											.section_table_column__value_label we sell @
 											.section_table_column__value= rate.sell_value
-			.section_table_column 
+			li.section_table_column.tableColumn
 				h4.section_table_column__title.spollerTitle OUR RESERVES
 				.section_table_column__body 
 					ul.section_table_column__list
@@ -118,7 +119,7 @@ section.section.section_table
 									.section_table_column_reserves__amount
 										.section_table_column__value= reserve.value
 										.section_table_column__value_name= reserve.value_name
-			.section_table_column
+			li.section_table_column.tableColumn
 				h4.section_table_column__title.spollerTitle LATEST EXCHANGES
 				.section_table_column__body
 					ul.section_table_column__list
